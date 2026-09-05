@@ -3,9 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://b6xa262g1hapk" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://byxt30yrvw5q4" path="res://sprites/world/tilemap.png" id="2_0wfyh"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_k1eu7"]
-distance = -426.0
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sugp2"]
 resource_name = "world"
 texture = ExtResource("2_0wfyh")
@@ -232,19 +229,22 @@ tile_size = Vector2i(18, 18)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_sugp2")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_k1eu7"]
+normal = Vector2(1, 0)
+
 [node name="Main" type="Node2D" unique_id=282593818]
 
 [node name="Player" parent="." unique_id=379492877 instance=ExtResource("1_o5qli")]
 position = Vector2(24, -103)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=966110036]
-position = Vector2(-24, -5)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=322559916]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1793713941]
-shape = SubResource("WorldBoundaryShape2D_k1eu7")
-
 [node name="World" type="TileMapLayer" parent="." unique_id=105403102]
 tile_map_data = PackedByteArray("AAAAAP//AAACAAYAAAABAP//AAACAAYAAAACAP//AAACAAYAAAADAP//AAACAAYAAAAEAP//AAACAAYAAAAFAP//AAACAAYAAAAGAP//AAACAAYAAAAAAP7/AAACAAYAAAABAP7/AAACAAYAAAACAP7/AAACAAYAAAADAP7/AAACAAYAAAAEAP7/AAACAAYAAAAFAP7/AAACAAYAAAAGAP7/AAACAAYAAAAHAP7/AAACAAYAAAAHAP//AAACAAYAAAAIAP//AAACAAYAAAAJAP//AAACAAYAAAAKAP//AAACAAYAAAALAP//AAACAAYAAAAKAP7/AAACAAYAAAAJAP7/AAACAAYAAAAIAP7/AAACAAYAAAALAP7/AAACAAYAAAAMAP7/AAACAAYAAAANAP7/AAADAAYAAAANAP//AAADAAYAAAAMAP//AAACAAYAAAAAAP3/AAACAAEAAAABAP3/AAACAAEAAAACAP3/AAACAAEAAAADAP3/AAACAAEAAAAEAP3/AAACAAEAAAAFAP3/AAACAAEAAAAGAP3/AAACAAEAAAAHAP3/AAACAAEAAAAIAP3/AAACAAEAAAAJAP3/AAACAAEAAAAKAP3/AAACAAEAAAALAP3/AAACAAEAAAAMAP3/AAACAAEAAAANAP3/AAADAAEAAAARAP3/AAABAAEAAAARAP7/AAABAAYAAAARAP//AAABAAYAAAASAP3/AAACAAEAAAATAP3/AAACAAEAAAAUAP3/AAACAAEAAAAVAP3/AAACAAEAAAAPAPr/AAAOAAcAAAAOAPr/AAANAAcAAAAQAPr/AAAPAAcAAAASAP7/AAACAAYAAAASAP//AAACAAYAAAATAP//AAACAAYAAAAUAP//AAACAAYAAAAUAP7/AAACAAYAAAAVAP7/AAACAAYAAAAWAP7/AAACAAYAAAATAP7/AAACAAYAAAAVAP//AAACAAYAAAAWAP//AAACAAYAAAAWAP3/AAACAAEAAAA=")
 tile_set = SubResource("TileSet_k1eu7")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=966110036]
+position = Vector2(192, -108)
+
+[node name="WorldBoundary" type="StaticBody2D" parent="." unique_id=1721645944]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary" unique_id=82200100]
+shape = SubResource("WorldBoundaryShape2D_k1eu7")
