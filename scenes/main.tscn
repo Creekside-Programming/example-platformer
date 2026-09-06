@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b36mcin51agyf" path="res://scripts/death_plane.gd" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://bm2t7xelc2lly" path="res://scenes/LuckyBlock.tscn" id="4_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dfyw2wkbqk4f5" path="res://scenes/spawnpoint.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bir41atigkfa6" path="res://scenes/coin.tscn" id="7_o6xl0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 texture = ExtResource("3_sugp2")
@@ -315,5 +316,8 @@ shape = SubResource("WorldBoundaryShape2D_tefeu")
 
 [node name="Spawnpoint" parent="." unique_id=787047588 instance=ExtResource("5_tbgi4")]
 position = Vector2(39, -66)
+
+[node name="Coin" parent="." unique_id=145059727 instance=ExtResource("7_o6xl0")]
+position = Vector2(172, -100)
 
 [connection signal="area_entered" from="DeathPlane" to="DeathPlane" method="_on_area_entered"]

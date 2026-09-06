@@ -6,9 +6,17 @@ extends CharacterBody2D
 @export var jump_velocity: float = -300.0
 @export_group("")
 @export var spawnpoint: Spawnpoint
+@export var coins: int:
+	get:
+		return coins
+	set(value):
+		coins = value
+		coins_changed.emit()
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var area: Area2D = $Area2D
+
+signal coins_changed
 
 func _ready() -> void:
 	if spawnpoint == null:
@@ -53,6 +61,6 @@ func _physics_process(delta: float) -> void:
 			if collider.get_parent() is LuckyBlock:
 				collider.get_parent().hit()
 
-func destroy():
+func destroy() -> void:
 	position = spawnpoint.position
 	velocity = Vector2(0, 0)
