@@ -42,6 +42,16 @@ func _physics_process(delta: float) -> void:
 		sprite.play("jump")
 
 	move_and_slide()
+	
+	
+	for i in get_slide_collision_count():
+		var collision := get_slide_collision(i)
+
+		if collision.get_normal().y > 0.7:
+			var collider = collision.get_collider()
+
+			if collider.get_parent() is LuckyBlock:
+				collider.get_parent().hit()
 
 func destroy():
 	position = spawnpoint.position
