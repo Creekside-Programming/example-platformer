@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b6xa262g1hapk" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://byxt30yrvw5q4" path="res://sprites/world/tilemap.png" id="2_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://bo4r67q6b12nu" path="res://sprites/world/backgrounds.png" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://ch28lc6ft0ov2" path="res://scenes/hud.tscn" id="3_tipki"]
 [ext_resource type="Script" uid="uid://b36mcin51agyf" path="res://scripts/death_plane.gd" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://bm2t7xelc2lly" path="res://scenes/LuckyBlock.tscn" id="4_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dfyw2wkbqk4f5" path="res://scenes/spawnpoint.tscn" id="5_tbgi4"]
@@ -320,4 +321,7 @@ position = Vector2(39, -66)
 [node name="Coin" parent="." unique_id=145059727 instance=ExtResource("7_o6xl0")]
 position = Vector2(172, -100)
 
+[node name="HUD" parent="." unique_id=1424336973 instance=ExtResource("3_tipki")]
+
+[connection signal="coins_changed" from="Player" to="HUD" method="_on_player_coins_changed"]
 [connection signal="area_entered" from="DeathPlane" to="DeathPlane" method="_on_area_entered"]

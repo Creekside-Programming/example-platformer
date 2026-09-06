@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ch28lc6ft0ov2"]
+
+[ext_resource type="Script" uid="uid://h6k0u2hd47ux" path="res://scripts/gui.gd" id="1_efmwq"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1465037427]
+script = ExtResource("1_efmwq")
+
+[node name="Control" type="Control" parent="." unique_id=1001316137]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CoinCounter" type="Label" parent="Control" unique_id=114972969]
+layout_mode = 0
+offset_right = 61.0
+offset_bottom = 23.0
+text = "Coins: 0"

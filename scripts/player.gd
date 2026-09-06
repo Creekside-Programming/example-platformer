@@ -11,12 +11,12 @@ extends CharacterBody2D
 		return coins
 	set(value):
 		coins = value
-		coins_changed.emit()
+		coins_changed.emit(coins)
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var area: Area2D = $Area2D
 
-signal coins_changed
+signal coins_changed(coins: int)
 
 func _ready() -> void:
 	if spawnpoint == null:
