@@ -59,7 +59,7 @@ func _physics_process(delta: float) -> void:
 			var collider = collision.get_collider()
 
 			if collider.get_parent() is LuckyBlock:
-				collider.get_parent().hit()
+				collider.get_parent().hit(self)
 
 func destroy() -> void:
 	position = spawnpoint.position

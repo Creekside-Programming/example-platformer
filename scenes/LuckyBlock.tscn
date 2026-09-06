@@ -3,6 +3,28 @@
 [ext_resource type="Script" uid="uid://dnf84pjepjo5m" path="res://scripts/lucky_block.gd" id="1_q4ywd"]
 [ext_resource type="Texture2D" uid="uid://byxt30yrvw5q4" path="res://sprites/world/tilemap.png" id="2_i1giy"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4ywd"]
+atlas = ExtResource("2_i1giy")
+region = Rect2(198, 126, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1giy"]
+atlas = ExtResource("2_i1giy")
+region = Rect2(216, 126, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k1eu7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4ywd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1giy")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_k1eu7"]
 atlas = ExtResource("2_i1giy")
 region = Rect2(180, 0, 18, 18)
@@ -28,10 +50,22 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CoinSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_i1giy"]
 resource_name = "hit"
-length = 0.19999999999999998
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -42,7 +76,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -3), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CoinSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -36), Vector2(0, -18)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cbiu5"]
@@ -53,6 +99,9 @@ _data = {
 
 [node name="LuckyBlock" type="Node2D" unique_id=379539119]
 script = ExtResource("1_q4ywd")
+
+[node name="CoinSprite" type="AnimatedSprite2D" parent="." unique_id=467242745]
+sprite_frames = SubResource("SpriteFrames_k1eu7")
 
 [node name="Unused" type="Sprite2D" parent="." unique_id=157788766]
 texture = SubResource("AtlasTexture_k1eu7")
@@ -67,3 +116,5 @@ shape = SubResource("RectangleShape2D_k1eu7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=856669086]
 libraries/ = SubResource("AnimationLibrary_cbiu5")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
