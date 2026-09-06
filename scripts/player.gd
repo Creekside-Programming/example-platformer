@@ -1,9 +1,16 @@
+class_name Player
 extends CharacterBody2D
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
+@export var spawnpoint: Node2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var area: Area2D = $Area2D
+
+func _ready() -> void:
+	if spawnpoint == null:
+		printerr("Player does not have a spawnpoint assigned to it!")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -33,3 +40,7 @@ func _physics_process(delta: float) -> void:
 		sprite.play("jump")
 
 	move_and_slide()
+
+func destroy():
+	position = spawnpoint.position
+	velocity = Vector2(0, 0)

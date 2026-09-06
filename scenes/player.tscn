@@ -62,3 +62,9 @@ shape = SubResource("CircleShape2D_k1eu7")
 sprite_frames = SubResource("SpriteFrames_k1eu7")
 animation = &"idle"
 flip_h = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=540542142]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1612654337]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_k1eu7")
