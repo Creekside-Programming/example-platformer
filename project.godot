@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="2D-platformer-example"
+config/description="An example 2D platformer made in Godot."
 run/main_scene="uid://bldnr0ofsbpo8"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+config/tags=PackedStringArray("2d", "demo", "physics", "tilemap")
 
 [display]
 
