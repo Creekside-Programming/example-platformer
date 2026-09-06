@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bo4r67q6b12nu" path="res://sprites/world/backgrounds.png" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://ch28lc6ft0ov2" path="res://scenes/hud.tscn" id="3_tipki"]
 [ext_resource type="Script" uid="uid://b36mcin51agyf" path="res://scripts/death_plane.gd" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://bm2t7xelc2lly" path="res://scenes/LuckyBlock.tscn" id="4_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bm2t7xelc2lly" path="res://scenes/lucky_block.tscn" id="4_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dfyw2wkbqk4f5" path="res://scenes/spawnpoint.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bir41atigkfa6" path="res://scenes/coin.tscn" id="7_o6xl0"]
 
