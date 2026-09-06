@@ -2,10 +2,14 @@ class_name Player
 extends CharacterBody2D
 
 @export_group("Movement")
+## The amount that the direction of movement is multiplied by.
 @export var speed: float = 150.0
+## What the upwards velocity is set to when the jump key is pressed.
 @export var jump_velocity: float = -300.0
 @export_group("")
+## Where the player will return to after death.
 @export var spawnpoint: Spawnpoint
+## The number of coins the player has collected.
 @export var coins: int:
 	get:
 		return coins
@@ -16,6 +20,7 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var area: Area2D = $Area2D
 
+## Emits whenever the [member coins] variable changes.
 signal coins_changed(coins: int)
 
 func _ready() -> void:
