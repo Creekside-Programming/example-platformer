@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://chlwjykgb8p2o"]
+
+[ext_resource type="Script" uid="uid://bjwu62lyuok0n" path="res://scripts/spring.gd" id="1_6vrsj"]
+[ext_resource type="Texture2D" uid="uid://byxt30yrvw5q4" path="res://sprites/world/tilemap.png" id="1_61klm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vrsj"]
+atlas = ExtResource("1_61klm")
+region = Rect2(126, 90, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6w1c"]
+atlas = ExtResource("1_61klm")
+region = Rect2(144, 90, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k1eu7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vrsj")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6w1c")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1eu7"]
+size = Vector2(20, 11)
+
+[node name="Spring" type="Node2D" unique_id=1185490542]
+script = ExtResource("1_6vrsj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=885128984]
+sprite_frames = SubResource("SpriteFrames_k1eu7")
+animation = &"down"
+autoplay = "down"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1738530919]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1722854597]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_k1eu7")
+
+[node name="ResetTimer" type="Timer" parent="." unique_id=101990872]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="ResetTimer" to="." method="_on_reset_timer_timeout"]
