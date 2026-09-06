@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://byxt30yrvw5q4" path="res://sprites/world/tilemap.png" id="2_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://bo4r67q6b12nu" path="res://sprites/world/backgrounds.png" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://b36mcin51agyf" path="res://scripts/death_plane.gd" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dfyw2wkbqk4f5" path="res://scenes/spawnpoint.tscn" id="5_tbgi4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 texture = ExtResource("3_sugp2")
@@ -277,7 +278,7 @@ tile_map_data = PackedByteArray("AAAAAP//AAAGAAIAAAABAP//AAAGAAIAAAACAP//AAAGAAI
 tile_set = SubResource("TileSet_8so65")
 
 [node name="Player" parent="." unique_id=379492877 node_paths=PackedStringArray("spawnpoint") instance=ExtResource("1_o5qli")]
-position = Vector2(24, -103)
+position = Vector2(72, -101)
 spawnpoint = NodePath("../Spawnpoint")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=966110036]
@@ -288,6 +289,7 @@ position_smoothing_speed = 4.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_right_margin = 0.0
+metadata/_edit_lock_ = true
 
 [node name="World" type="TileMapLayer" parent="." unique_id=105403102]
 tile_map_data = PackedByteArray("AAAAAP//AAACAAYAAAABAP//AAACAAYAAAACAP//AAACAAYAAAADAP//AAACAAYAAAAEAP//AAACAAYAAAAFAP//AAACAAYAAAAGAP//AAACAAYAAAAAAP7/AAACAAYAAAABAP7/AAACAAYAAAACAP7/AAACAAYAAAADAP7/AAACAAYAAAAEAP7/AAACAAYAAAAFAP7/AAACAAYAAAAGAP7/AAACAAYAAAAHAP7/AAACAAYAAAAHAP//AAACAAYAAAAIAP//AAACAAYAAAAJAP//AAACAAYAAAAKAP//AAACAAYAAAALAP//AAACAAYAAAAKAP7/AAACAAYAAAAJAP7/AAACAAYAAAAIAP7/AAACAAYAAAALAP7/AAACAAYAAAAMAP7/AAACAAYAAAANAP7/AAADAAYAAAANAP//AAADAAYAAAAMAP//AAACAAYAAAAAAP3/AAACAAEAAAABAP3/AAACAAEAAAACAP3/AAACAAEAAAADAP3/AAACAAEAAAAEAP3/AAACAAEAAAAFAP3/AAACAAEAAAAGAP3/AAACAAEAAAAHAP3/AAACAAEAAAAIAP3/AAACAAEAAAAJAP3/AAACAAEAAAAKAP3/AAACAAEAAAALAP3/AAACAAEAAAAMAP3/AAACAAEAAAANAP3/AAADAAEAAAARAP3/AAABAAEAAAARAP7/AAABAAYAAAARAP//AAABAAYAAAASAP3/AAACAAEAAAATAP3/AAACAAEAAAAUAP3/AAACAAEAAAAVAP3/AAACAAEAAAAPAPr/AAAOAAcAAAAOAPr/AAANAAcAAAAQAPr/AAAPAAcAAAASAP7/AAACAAYAAAASAP//AAACAAYAAAATAP//AAACAAYAAAAUAP//AAACAAYAAAAUAP7/AAACAAYAAAAVAP7/AAACAAYAAAAWAP7/AAACAAYAAAATAP7/AAACAAYAAAAVAP//AAACAAYAAAAWAP//AAACAAYAAAAWAP3/AAACAAEAAAA=")
@@ -298,13 +300,13 @@ tile_set = SubResource("TileSet_k1eu7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary" unique_id=82200100]
 shape = SubResource("WorldBoundaryShape2D_k1eu7")
 
-[node name="Spawnpoint" type="Node2D" parent="." unique_id=576183379]
-position = Vector2(33, -67)
-
 [node name="DeathPlane" type="Area2D" parent="." unique_id=58160513]
 script = ExtResource("4_jyhfs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane" unique_id=64931919]
 shape = SubResource("WorldBoundaryShape2D_tefeu")
+
+[node name="Spawnpoint" parent="." unique_id=787047588 instance=ExtResource("5_tbgi4")]
+position = Vector2(39, -66)
 
 [connection signal="area_entered" from="DeathPlane" to="DeathPlane" method="_on_area_entered"]

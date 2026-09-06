@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var speed: float = 150.0
 @export var jump_velocity: float = -300.0
 @export_group("")
-@export var spawnpoint: Node2D
+@export var spawnpoint: Spawnpoint
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var area: Area2D = $Area2D

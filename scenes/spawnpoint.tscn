@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dfyw2wkbqk4f5"]
+
+[ext_resource type="Shader" uid="uid://ctldu6525k0ba" path="res://shaders/monochromatic.gdshader" id="1_7k2ad"]
+[ext_resource type="Script" uid="uid://rbx612wrs44e" path="res://scenes/spawnpoint.gd" id="1_lw2m8"]
+[ext_resource type="Texture2D" uid="uid://byxt30yrvw5q4" path="res://sprites/world/tilemap.png" id="2_lw2m8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8so65"]
+shader = ExtResource("1_7k2ad")
+shader_parameter/opacity = 0.5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1eu7"]
+atlas = ExtResource("2_lw2m8")
+region = Rect2(215, 90, 18, 18)
+
+[node name="Spawnpoint" type="Node2D" unique_id=787047588]
+script = ExtResource("1_lw2m8")
+
+[node name="EditorPreview" type="Sprite2D" parent="." unique_id=1027217237]
+material = SubResource("ShaderMaterial_8so65")
+position = Vector2(0, 3)
+texture = SubResource("AtlasTexture_k1eu7")
