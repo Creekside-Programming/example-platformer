@@ -12,10 +12,12 @@ config_version=5
 
 config/name="2D-platformer-example"
 config/description="An example 2D platformer made in Godot."
+config/tags=PackedStringArray("2d", "demo", "physics", "tilemap")
 run/main_scene="uid://bldnr0ofsbpo8"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
-config/tags=PackedStringArray("2d", "demo", "physics", "tilemap")
+boot_splash/bg_color=Color(0.26424837, 0.2642482, 0.2642482, 1)
+boot_splash/image="uid://b4837eke68038"
+config/icon="uid://b4837eke68038"
 
 [display]
 
