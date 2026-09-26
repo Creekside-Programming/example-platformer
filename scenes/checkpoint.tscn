@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://bwjsgud4vfxk5"]
+
+[ext_resource type="Script" uid="uid://c4vrha02f47ac" path="res://scenes/checkpoint.gd" id="1_vsimk"]
+[ext_resource type="Texture2D" uid="uid://byxt30yrvw5q4" path="res://sprites/world/tilemap.png" id="1_yyywg"]
+[ext_resource type="PackedScene" uid="uid://dfyw2wkbqk4f5" path="res://scenes/spawnpoint.tscn" id="3_yqsag"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywqth"]
+atlas = ExtResource("1_yyywg")
+region = Rect2(198, 90, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsimk"]
+atlas = ExtResource("1_yyywg")
+region = Rect2(216, 90, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k1eu7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywqth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsimk")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1eu7"]
+atlas = ExtResource("1_yyywg")
+region = Rect2(198, 108, 18, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1eu7"]
+size = Vector2(18, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8so65"]
+atlas = ExtResource("1_yyywg")
+region = Rect2(198, 126, 18, 18)
+
+[sub_resource type="Curve" id="Curve_hjwly"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Checkpoint" type="Node2D" unique_id=185746821]
+script = ExtResource("1_vsimk")
+
+[node name="Flag" type="AnimatedSprite2D" parent="." unique_id=1138134145]
+position = Vector2(9, 9)
+sprite_frames = SubResource("SpriteFrames_k1eu7")
+autoplay = "default"
+frame_progress = 0.80330694
+
+[node name="Pole" type="Sprite2D" parent="." unique_id=1866898598]
+position = Vector2(9, 27)
+texture = SubResource("AtlasTexture_k1eu7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1164003848]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=943625007]
+position = Vector2(9, 18)
+shape = SubResource("RectangleShape2D_k1eu7")
+
+[node name="Spawnpoint" parent="." unique_id=787047588 instance=ExtResource("3_yqsag")]
+position = Vector2(9, 24)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=195088779]
+position = Vector2(9, 9)
+emitting = false
+texture = SubResource("AtlasTexture_8so65")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 6.0
+direction = Vector2(0, -1)
+spread = 75.0
+gravity = Vector2(0, 500)
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+angular_velocity_max = 720.0
+scale_amount_min = 0.6
+scale_amount_max = 0.9
+scale_amount_curve = SubResource("Curve_hjwly")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="finished" from="CPUParticles2D" to="." method="_on_cpu_particles_2d_finished"]

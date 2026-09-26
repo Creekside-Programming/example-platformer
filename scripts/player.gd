@@ -67,5 +67,5 @@ func _physics_process(delta: float) -> void:
 				collider.get_parent().hit(self)
 
 func destroy() -> void:
-	position = spawnpoint.position
+	position = spawnpoint.global_position
 	velocity = Vector2(0, 0)
