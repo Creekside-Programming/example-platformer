@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bir41atigkfa6" path="res://scenes/coin.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://chlwjykgb8p2o" path="res://scenes/spring.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://bwjsgud4vfxk5" path="res://scenes/checkpoint.tscn" id="10_choun"]
+[ext_resource type="PackedScene" uid="uid://dbur476j7w77q" path="res://scenes/blue_mc_donalds_guy.tscn" id="11_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 texture = ExtResource("3_sugp2")
@@ -346,6 +347,9 @@ position = Vector2(801, -63)
 
 [node name="Checkpoint" parent="." unique_id=185746821 instance=ExtResource("10_choun")]
 position = Vector2(882, -197)
+
+[node name="BlueMcDonaldsGuy" parent="." unique_id=308736660 instance=ExtResource("11_ya4ey")]
+position = Vector2(555, -109)
 
 [node name="Player" parent="." unique_id=379492877 node_paths=PackedStringArray("spawnpoint") instance=ExtResource("1_o5qli")]
 position = Vector2(63, -99)

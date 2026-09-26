@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://dbur476j7w77q"]
+
+[ext_resource type="Script" uid="uid://bjvamdv42pa32" path="res://scripts/blue_mc_donalds_guy.gd" id="1_82hor"]
+[ext_resource type="Texture2D" uid="uid://be8twhhyg76e0" path="res://sprites/characters.png" id="2_fvxwq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1eu7"]
+size = Vector2(15, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nr27g"]
+atlas = ExtResource("2_fvxwq")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdkg2"]
+atlas = ExtResource("2_fvxwq")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k1eu7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nr27g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdkg2")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k1eu7"]
+radius = 7.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8so65"]
+size = Vector2(17, 13)
+
+[node name="BlueMcDonaldsGuy" type="CharacterBody2D" unique_id=308736660]
+collision_layer = 4
+script = ExtResource("1_82hor")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1428673171]
+position = Vector2(0.5, 5)
+shape = SubResource("RectangleShape2D_k1eu7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=903705867]
+sprite_frames = SubResource("SpriteFrames_k1eu7")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.94681215
+
+[node name="DestroyArea" type="Area2D" parent="." unique_id=1722551613]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestroyArea" unique_id=844539399]
+position = Vector2(0.5, 1)
+shape = SubResource("CircleShape2D_k1eu7")
+
+[node name="LeftFloorRay" type="RayCast2D" parent="." unique_id=763992119]
+position = Vector2(-6, 3)
+target_position = Vector2(0, 10)
+
+[node name="RightFloorRay" type="RayCast2D" parent="." unique_id=1034754824]
+position = Vector2(7, 3)
+target_position = Vector2(0, 10)
+
+[node name="HurtArea" type="Area2D" parent="." unique_id=1612317387]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" unique_id=2105729026]
+position = Vector2(0.5, 5.5)
+shape = SubResource("RectangleShape2D_8so65")
+
+[connection signal="area_entered" from="DestroyArea" to="." method="_on_destroy_area_area_entered"]
