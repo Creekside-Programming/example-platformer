@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bwjsgud4vfxk5"]
 
-[ext_resource type="Script" uid="uid://c4vrha02f47ac" path="res://scenes/checkpoint.gd" id="1_vsimk"]
+[ext_resource type="Script" uid="uid://c4vrha02f47ac" path="res://scripts/checkpoint.gd" id="1_vsimk"]
 [ext_resource type="Texture2D" uid="uid://byxt30yrvw5q4" path="res://sprites/world/tilemap.png" id="1_yyywg"]
 [ext_resource type="PackedScene" uid="uid://dfyw2wkbqk4f5" path="res://scenes/spawnpoint.tscn" id="3_yqsag"]
 
@@ -48,7 +48,7 @@ script = ExtResource("1_vsimk")
 position = Vector2(9, 9)
 sprite_frames = SubResource("SpriteFrames_k1eu7")
 autoplay = "default"
-frame_progress = 0.80330694
+frame_progress = 0.119454674
 
 [node name="Pole" type="Sprite2D" parent="." unique_id=1866898598]
 position = Vector2(9, 27)
