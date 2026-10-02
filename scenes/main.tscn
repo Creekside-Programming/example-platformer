@@ -336,6 +336,65 @@ tile_set = SubResource("TileSet_k1eu7")
 position = Vector2(261, -99)
 rotation = -0.0025995811
 
+[node name="LuckyBlock" parent="World/LuckyBlocks/LuckyBlock" unique_id=140780629 instance=ExtResource("4_tefeu")]
+position = Vector2(1025.9966, 2.6671672)
+
+[node name="Coins" type="Node" parent="World" unique_id=1476978318]
+
+[node name="Coin" parent="World/Coins" unique_id=145059727 instance=ExtResource("7_o6xl0")]
+position = Vector2(189, -81)
+
+[node name="Coin2" parent="World/Coins" unique_id=1307783288 instance=ExtResource("7_o6xl0")]
+position = Vector2(1089, -153)
+
+[node name="Coin3" parent="World/Coins" unique_id=1191924393 instance=ExtResource("7_o6xl0")]
+position = Vector2(1089, -135)
+
+[node name="Coin4" parent="World/Coins" unique_id=338671345 instance=ExtResource("7_o6xl0")]
+position = Vector2(1089, -117)
+
+[node name="Coin5" parent="World/Coins" unique_id=1500231735 instance=ExtResource("7_o6xl0")]
+position = Vector2(1089, -99)
+
+[node name="Coin6" parent="World/Coins" unique_id=1967384094 instance=ExtResource("7_o6xl0")]
+position = Vector2(1071, -117)
+
+[node name="Coin7" parent="World/Coins" unique_id=1302128326 instance=ExtResource("7_o6xl0")]
+position = Vector2(1107, -117)
+
+[node name="Coin8" parent="World/Coins" unique_id=210582200 instance=ExtResource("7_o6xl0")]
+position = Vector2(891, -207)
+
+[node name="Coin9" parent="World/Coins" unique_id=1531849236 instance=ExtResource("7_o6xl0")]
+position = Vector2(801, -153)
+
+[node name="Coin10" parent="World/Coins" unique_id=1192746097 instance=ExtResource("7_o6xl0")]
+position = Vector2(801, -135)
+
+[node name="Coin11" parent="World/Coins" unique_id=836376973 instance=ExtResource("7_o6xl0")]
+position = Vector2(801, -171)
+
+[node name="Coin12" parent="World/Coins" unique_id=1681097940 instance=ExtResource("7_o6xl0")]
+position = Vector2(1431, -117)
+
+[node name="Coin13" parent="World/Coins" unique_id=2064839949 instance=ExtResource("7_o6xl0")]
+position = Vector2(1449, -135)
+
+[node name="Coin14" parent="World/Coins" unique_id=1828080347 instance=ExtResource("7_o6xl0")]
+position = Vector2(1467, -117)
+
+[node name="Coin15" parent="World/Coins" unique_id=1787495653 instance=ExtResource("7_o6xl0")]
+position = Vector2(1629, -153)
+
+[node name="Coin16" parent="World/Coins" unique_id=993905082 instance=ExtResource("7_o6xl0")]
+position = Vector2(1647, -153)
+
+[node name="Coin17" parent="World/Coins" unique_id=1382850593 instance=ExtResource("7_o6xl0")]
+position = Vector2(1665, -153)
+
+[node name="Coin18" parent="World/Coins" unique_id=1289997794 instance=ExtResource("7_o6xl0")]
+position = Vector2(1665, -153)
+
 [node name="WorldBoundary" type="StaticBody2D" parent="." unique_id=1721645944]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary" unique_id=82200100]
@@ -349,9 +408,6 @@ shape = SubResource("WorldBoundaryShape2D_tefeu")
 
 [node name="Spawnpoint" parent="." unique_id=787047588 instance=ExtResource("5_tbgi4")]
 position = Vector2(45, -66)
-
-[node name="Coin" parent="." unique_id=145059727 instance=ExtResource("7_o6xl0")]
-position = Vector2(189, -99)
 
 [node name="HUD" parent="." unique_id=1424336973 instance=ExtResource("3_tipki")]
 

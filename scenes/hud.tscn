@@ -1,6 +1,15 @@
 [gd_scene format=3 uid="uid://ch28lc6ft0ov2"]
 
 [ext_resource type="Script" uid="uid://h6k0u2hd47ux" path="res://scripts/gui.gd" id="1_efmwq"]
+[ext_resource type="Texture2D" uid="uid://byxt30yrvw5q4" path="res://sprites/world/tilemap.png" id="2_5ysmq"]
+[ext_resource type="FontFile" uid="uid://cdxeg47fskivb" path="res://fonts/home-video/HomeVideo-Regular.ttf" id="3_6fi6k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1eu7"]
+atlas = ExtResource("2_5ysmq")
+region = Rect2(198, 126, 18, 18)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8so65"]
+font = ExtResource("3_6fi6k")
 
 [node name="HUD" type="CanvasLayer" unique_id=1465037427]
 script = ExtResource("1_efmwq")
@@ -11,8 +20,18 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="CoinCounter" type="Label" parent="Control" unique_id=114972969]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=390746666]
 layout_mode = 0
-offset_right = 61.0
-offset_bottom = 23.0
-text = "Coins: 0"
+offset_right = 104.0
+offset_bottom = 27.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer" unique_id=813379089]
+layout_mode = 2
+texture = SubResource("AtlasTexture_k1eu7")
+expand_mode = 2
+
+[node name="CoinCounter" type="Label" parent="Control/HBoxContainer" unique_id=114972969]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_8so65")
+vertical_alignment = 1
